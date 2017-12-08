@@ -27,10 +27,11 @@ pipeline{
                 bat 'tasklist /fi "imagename eq nginx.exe'
             }
         }
-		stage('demo stage'){
+        stage('demo stage'){
             steps{
                 bat "echo 'JOB COMPLETED'"
             }
+		}
         }
     }
 }
