@@ -9,7 +9,7 @@ pipeline{
         }
         stage('list nginx pid'){
             steps{
-                bat '''tasklist /fi "imagename eq nginx.exe'''
+                bat "tasklist /fi "imagename eq nginx.exe"
             }
         }
         stage('approve stage'){
@@ -24,7 +24,12 @@ pipeline{
         }
         stage('list nginx pid after kill'){
             steps{
-                bat '''tasklist /fi "imagename eq nginx.exe'''
+                bat 'tasklist /fi "imagename eq nginx.exe'
+            }
+        }
+		stage('demo stage'){
+            steps{
+                bat "echo 'JOB COMPLETED'"
             }
         }
     }
