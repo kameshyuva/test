@@ -1,0 +1,4 @@
+ansible_user: nike\asark4
+ansible_port: 5985 #http port, 5896 - https port
+ansible_connection: winrm
+ansible_winrm_transport: credssp
