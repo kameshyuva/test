@@ -23,7 +23,7 @@ pipeline{
         }
         stage('list nginx pid after kill'){
             steps{
-                sh 'tasklist /fi "imagename eq nginx.exe'
+                sh 'echo list nginx pid after kill'
             }
         }
         stage('demo stage'){
