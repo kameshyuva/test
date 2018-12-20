@@ -3,13 +3,12 @@ pipeline{
     stages{        
         stage('start nginx'){
             steps{
-                bat '''cd D:\\Tools\\nginx-1.12.2
-                    start nginx'''
+                sh '''echo start nginx'''
             }
         }
         stage('list nginx pid'){
             steps{
-                bat "tasklist /fi "imagename eq nginx.exe"
+                sh  'echo list nginx pid'
             }
         }
         stage('approve stage'){
@@ -19,17 +18,17 @@ pipeline{
         }
         stage('kill nginx process'){
             steps{
-                bat '''taskkill /F /fi "imagename eq nginx.exe'''
+                sh 'echo kill nginx process'
             }
         }
         stage('list nginx pid after kill'){
             steps{
-                bat 'tasklist /fi "imagename eq nginx.exe'
+                sh 'tasklist /fi "imagename eq nginx.exe'
             }
         }
         stage('demo stage'){
             steps{
-                bat "echo 'JOB COMPLETED'"
+                sh "echo 'JOB COMPLETED'"
             }
 		}
         }
