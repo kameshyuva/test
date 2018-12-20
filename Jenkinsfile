@@ -4,6 +4,9 @@ pipeline{
         skipDefaultCheckout()
         cleanWS()
     }
+    triggers {
+        pollSCM('H/60 * * * *')
+    }
     stages{ 
         stage('checkout code'){
             steps{
