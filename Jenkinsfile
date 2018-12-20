@@ -28,8 +28,8 @@ pipeline{
         }
         stage('demo stage'){
             steps{
-                sh 'echo JOB COMPLETED'
+                sh 'echo BUILD SUCCESS'
             }
-	  }
+        }
     }
 }
