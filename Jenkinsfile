@@ -9,7 +9,7 @@ pipeline{
     stages{ 
         stage('checkout code'){
             steps{
-                cleanWS()
+                cleanWs()
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitHub', url: 'https://github.com/kameshyuva/test.git']]])
             }
         }
