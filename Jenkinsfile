@@ -1,14 +1,23 @@
 pipeline{
     agent any
-    stages{        
-        stage('start nginx'){
+    options {
+        skipDefaultCheckout()
+        cleanWS()
+    }
+    stages{ 
+        stage('checkout code'){
             steps{
-                sh 'echo start nginx'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitHub', url: 'https://github.com/kameshyuva/test.git']]])
             }
         }
-        stage('list nginx pid'){
+        stage('list folder'){
             steps{
-                sh  'echo list nginx pid'
+                sh 'ls -lrth'
+            }
+        }
+        stage('start nginx'){
+            steps{
+                sh  'echo start nginx'
             }
         }
         stage('approve stage'){
