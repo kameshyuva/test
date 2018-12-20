@@ -3,7 +3,7 @@ pipeline{
     stages{        
         stage('start nginx'){
             steps{
-                sh '''echo start nginx'''
+                sh 'echo start nginx'
             }
         }
         stage('list nginx pid'){
@@ -30,7 +30,6 @@ pipeline{
             steps{
                 sh "echo 'JOB COMPLETED'"
             }
-		}
-        }
+	  }
     }
 }
