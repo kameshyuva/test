@@ -2,7 +2,6 @@ pipeline{
     agent any
     options {
         skipDefaultCheckout()
-        cleanWS()
     }
     triggers {
         pollSCM('H/60 * * * *')
@@ -10,6 +9,7 @@ pipeline{
     stages{ 
         stage('checkout code'){
             steps{
+                cleanWS()
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitHub', url: 'https://github.com/kameshyuva/test.git']]])
             }
         }
